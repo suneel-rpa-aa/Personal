@@ -15,6 +15,35 @@
             overflow: hidden;
         }
 
+        /* PASSWORD SCREEN */
+        #loginScreen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mainContent {
+            display: none;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+        }
+
         /* NAV */
         nav {
             background: rgba(0, 0, 0, 0.25);
@@ -99,116 +128,137 @@
 
 <body>
 
-    <nav>
-        <a onclick="show('rose')">🌹 Rose</a>
-        <a onclick="show('propose')">💍 Propose</a>
-        <a onclick="show('chocolate')">🍫 Chocolate</a>
-        <a onclick="show('teddy')">🧸 Teddy</a>
-        <a onclick="show('promise')">🤞 Promise</a>
-        <a onclick="show('hug')">🤗 Hug</a>
-        <a onclick="show('kiss')">😘 Kiss</a>
-        <a onclick="show('valentine')">❤️ Valentine</a>
-    </nav>
+    <!-- PASSWORD SCREEN -->
+    <div id="loginScreen">
+        <h2>Enter Our Secret Password 💖</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Unlock</button>
+        <p id="error" style="color:yellow;"></p>
+    </div>
 
-    <!-- ROSE -->
-    <div id="rose" class="section active">
-        <h1>Happy Rose Day My Darling 🌹</h1>
-        <div class="emoji">
-            <span class="jump" style="animation-delay:0s">🌹</span>
-            <span class="jump" style="animation-delay:.2s">🌹</span>
-            <span class="jump" style="animation-delay:.4s">🌹</span>
-            <span class="jump" style="animation-delay:.6s">🌹</span>
+    <!-- MAIN CONTENT -->
+    <div id="mainContent">
+
+        <nav>
+            <a onclick="show('rose')">🌹 Rose</a>
+            <a onclick="show('propose')">💍 Propose</a>
+            <a onclick="show('chocolate')">🍫 Chocolate</a>
+            <a onclick="show('teddy')">🧸 Teddy</a>
+            <a onclick="show('promise')">🤞 Promise</a>
+            <a onclick="show('hug')">🫂 Hug</a>
+            <a onclick="show('kiss')">😘 Kiss</a>
+            <a onclick="show('valentine')">❤️ Valentine</a>
+        </nav>
+
+        <!-- ROSE -->
+        <div id="rose" class="section active">
+            <h1>Happy Rose Day My Darling 🌹</h1>
+            <div class="emoji">
+                <span class="jump" style="animation-delay:0s">🌹</span>
+                <span class="jump" style="animation-delay:.2s">🌹</span>
+                <span class="jump" style="animation-delay:.4s">🌹</span>
+                <span class="jump" style="animation-delay:.6s">🌹</span>
+            </div>
         </div>
-    </div>
 
-    <!-- PROPOSE -->
-    <div id="propose" class="section">
-        <h1>Happy Propose Day My Darling 💍</h1>
-
-        <p style="font-size:22px; max-width:700px; line-height:1.6;">
-            Every moment with you is special, but today,
-            I want to make it unforgettable.
-            Will you accept my heart darling..?
-            <span class="float">❤️</span>
-        </p>
-
-    </div>
-
-    <!-- CHOCOLATE -->
-    <div id="chocolate" class="section">
-        <h1>Happy Chocolate Day My Darling 🍫</h1>
-        <div class="emoji">
-            <span class="jump" style="animation-delay:0s">🍫</span>
-            <span class="jump" style="animation-delay:.2s">🍫</span>
-            <span class="jump" style="animation-delay:.4s">🍫</span>
+        <!-- PROPOSE -->
+        <div id="propose" class="section">
+            <h1>Happy Propose Day My Darling 💍</h1>
+            <p style="font-size:22px; max-width:700px; line-height:1.6;">
+                Every moment with you is special, but today,
+                I want to make it unforgettable.
+                Will you accept my heart darling..?
+                <span class="float">❤️</span>
+            </p>
         </div>
-    </div>
 
-    <!-- TEDDY -->
-    <div id="teddy" class="section">
-        <h1>Happy Teddy Day My 🧸 Darling😉</h1>
-        <div class="emoji">
-            <span class="jump" style="animation-delay:0s">🧸</span>
-            <span class="jump" style="animation-delay:.3s">🧸</span>
-            <span class="jump" style="animation-delay:.6s">🧸</span>
+        <!-- CHOCOLATE -->
+        <div id="chocolate" class="section">
+            <h1>Happy Chocolate Day My Darling 🍫</h1>
+            <div class="emoji">
+                <span class="jump" style="animation-delay:0s">🍫</span>
+                <span class="jump" style="animation-delay:.2s">🍫</span>
+                <span class="jump" style="animation-delay:.4s">🍫</span>
+            </div>
         </div>
-    </div>
 
-    <!-- PROMISE -->
-    <div id="promise" class="section">
-        <h1>Happy Promise Day My Darling🤞</h1>
-        <p style="font-size:22px">
-            Maata isthunnaney 🤝 <br>
-            nekosam adhi chestanu, idhi chestanu ani peddha peddha dialogues cheppanu kani, <br>
-            Ninnu mosam cheyyanu, ne nammakani vommu kaanivvanu...
-        </p>
-        <h2 style="margin-top:20px;">
-            Happy Promise Day Darling
-            <span class="float">🫶</span>
-        </h2>
-    </div>
-
-    <!-- HUG -->
-    <div id="hug" class="section">
-        <h1>Happy Hug Day My Darling 🫂</h1>
-        <div class="emoji">
-            <span class="jump" style="animation-delay:0s">🫂</span>
-            <span class="jump" style="animation-delay:.2s">🫂</span>
-            <span class="jump" style="animation-delay:.3s">🫂</span>
-            <span class="jump" style="animation-delay:.4s">🫂</span>
+        <!-- TEDDY -->
+        <div id="teddy" class="section">
+            <h1>Happy Teddy Day My 🧸 Darling😉</h1>
+            <div class="emoji">
+                <span class="jump" style="animation-delay:0s">🧸</span>
+                <span class="jump" style="animation-delay:.3s">🧸</span>
+                <span class="jump" style="animation-delay:.6s">🧸</span>
+            </div>
         </div>
-    </div>
 
-    <!-- KISS -->
-    <div id="kiss" class="section">
-        <h1>Happy Kiss Day My Darling 😘😘</h1>
-        <div class="emoji">
-            <span class="jump" style="animation-delay:0s">😘</span>
-            <span class="jump" style="animation-delay:.2s">😘</span>
-            <span class="jump" style="animation-delay:.3s">😘</span>
-            <span class="jump" style="animation-delay:.4s">😘</span>
+        <!-- PROMISE -->
+        <div id="promise" class="section">
+            <h1>Happy Promise Day My Darling🤞</h1>
+            <p style="font-size:22px">
+                Maata isthunnaney 🤝 <br>
+                nekosam adhi chestanu, idhi chestanu ani peddha peddha dialogues cheppanu kani, <br>
+                Ninnu mosam cheyyanu, ne nammakani vommu kaanivvanu...
+            </p>
+            <h2 style="margin-top:20px;">
+                Happy Promise Day Darling
+                <span class="float">🫶</span>
+            </h2>
         </div>
-    </div>
 
-    <!-- VALENTINE -->
-    <div id="valentine" class="section">
-        <h1>Happy Valentine’s Day My Love❤️</h1>
+        <!-- HUG -->
+        <div id="hug" class="section">
+            <h1>Happy Hug Day My Darling 🫂</h1>
+            <div class="emoji">
+                <span class="jump" style="animation-delay:0s">🫂</span>
+                <span class="jump" style="animation-delay:.2s">🫂</span>
+                <span class="jump" style="animation-delay:.3s">🫂</span>
+                <span class="jump" style="animation-delay:.4s">🫂</span>
+            </div>
+        </div>
 
-        <p style="font-size:22px; max-width:700px; line-height:1.6;">
-            I'm so happy to have you in my life.
-            You're the best thing that ever happened to me.
-            You're the most beautiful gift I've ever received from God!
-            My life would be simply meaningless without you.
-            Thank you for being mine.
-        </p>
+        <!-- KISS -->
+        <div id="kiss" class="section">
+            <h1>Happy Kiss Day My Darling 😘😘</h1>
+            <div class="emoji">
+                <span class="jump" style="animation-delay:0s">😘</span>
+                <span class="jump" style="animation-delay:.2s">😘</span>
+                <span class="jump" style="animation-delay:.3s">😘</span>
+                <span class="jump" style="animation-delay:.4s">😘</span>
+            </div>
+        </div>
 
-        <h2 style="margin-top:25px;">
-            Happy Valentine's Day Love!
-            <span class="float">❤️</span>
-        </h2>
+        <!-- VALENTINE -->
+        <div id="valentine" class="section">
+            <h1>Happy Valentine’s Day My Love❤️</h1>
+            <p style="font-size:22px; max-width:700px; line-height:1.6;">
+                I'm so happy to have you in my life.
+                You're the best thing that ever happened to me.
+                You're the most beautiful gift I've ever received from God!
+                My life would be simply meaningless without you.
+                Thank you for being mine.
+            </p>
+            <h2 style="margin-top:25px;">
+                Happy Valentine's Day Love!
+                <span class="float">❤️</span>
+            </h2>
+        </div>
+
     </div>
 
     <script>
+        function checkPassword() {
+            var pass = document.getElementById("password").value;
+
+            // CHANGE PASSWORD HERE
+            if (pass === "myqueen") {
+                document.getElementById("loginScreen").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                document.getElementById("error").innerText = "Wrong password 😢";
+            }
+        }
+
         function show(id) {
             document.querySelectorAll('.section')
                 .forEach(s => s.classList.remove('active'));
