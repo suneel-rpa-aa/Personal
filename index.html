@@ -28,9 +28,7 @@ z-index:9999;
 animation:fadeOut 3s ease forwards;
 animation-delay:3s;
 }
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
-}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* HEART RAIN */
 .heartRain{
@@ -129,53 +127,97 @@ animation:explode 1s ease-out forwards;
 
 <body>
 
-<!-- Background Music -->
 <audio id="bgMusic" loop>
 <source src="love.mp3" type="audio/mpeg">
 </audio>
 
-<!-- INTRO -->
 <div id="introScreen">
 <h1>For My Love ❤️</h1>
 <p>Something Special Just For You 💖</p>
 </div>
 
-<!-- PASSWORD -->
 <div id="loginScreen">
 <h2>Enter Our Secret Password 💕</h2>
-<input type="password" id="password" placeholder="Password">
+<input type="password" id="password">
 <button onclick="checkPassword()">Unlock</button>
 <p id="error" style="color:yellow;"></p>
 </div>
 
-<!-- MAIN -->
 <div id="mainContent">
 
 <nav>
 <a onclick="show('rose')">🌹 Rose</a>
 <a onclick="show('propose')">💍 Propose</a>
+<a onclick="show('chocolate')">🍫 Chocolate</a>
+<a onclick="show('teddy')">🧸 Teddy</a>
+<a onclick="show('promise')">🤞 Promise</a>
+<a onclick="show('hug')">🫂 Hug</a>
+<a onclick="show('kiss')">😘 Kiss</a>
 <a onclick="show('valentine')">❤️ Valentine</a>
 </nav>
 
+<!-- ROSE -->
 <div id="rose" class="section active">
 <h1>Happy Rose Day My Darling 🌹</h1>
 <div class="emoji">
 <span class="jump">🌹</span>
 <span class="jump" style="animation-delay:.2s">🌹</span>
+<span class="jump" style="animation-delay:.4s">🌹</span>
 </div>
 </div>
 
+<!-- PROPOSE -->
 <div id="propose" class="section">
 <h1>Happy Propose Day My Darling 💍</h1>
-<p style="font-size:22px;">
-Every moment with you is special...
-<span class="float">❤️</span>
-</p>
+<p id="proposeText" style="font-size:22px; max-width:700px; line-height:1.6;"></p>
 </div>
 
+<!-- CHOCOLATE -->
+<div id="chocolate" class="section">
+<h1>Happy Chocolate Day My Darling 🍫</h1>
+<div class="emoji">
+<span class="jump">🍫</span>
+<span class="jump" style="animation-delay:.2s">🍫</span>
+</div>
+</div>
+
+<!-- TEDDY -->
+<div id="teddy" class="section">
+<h1>Happy Teddy Day My 🧸 Darling😉</h1>
+<div class="emoji">
+<span class="jump">🧸</span>
+<span class="jump" style="animation-delay:.3s">🧸</span>
+</div>
+</div>
+
+<!-- PROMISE -->
+<div id="promise" class="section">
+<h1>Happy Promise Day My Darling🤞</h1>
+<p id="promiseText" style="font-size:22px;"></p>
+</div>
+
+<!-- HUG -->
+<div id="hug" class="section">
+<h1>Happy Hug Day My Darling 🫂</h1>
+<div class="emoji">
+<span class="jump">🫂</span>
+<span class="jump" style="animation-delay:.2s">🫂</span>
+</div>
+</div>
+
+<!-- KISS -->
+<div id="kiss" class="section">
+<h1>Happy Kiss Day My Darling 😘😘</h1>
+<div class="emoji">
+<span class="jump">😘</span>
+<span class="jump" style="animation-delay:.2s">😘</span>
+</div>
+</div>
+
+<!-- VALENTINE -->
 <div id="valentine" class="section">
 <h1>Happy Valentine’s Day My Love❤️</h1>
-<p id="typewriter" style="font-size:22px; max-width:700px;"></p>
+<p id="valentineText" style="font-size:22px; max-width:700px; line-height:1.6;"></p>
 </div>
 
 </div>
@@ -199,10 +241,40 @@ document.querySelectorAll('.section')
 .forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 
-if(id==="valentine"){
-startTyping();
+if(id==="propose") typeWriter(proposeContent,"proposeText");
+if(id==="promise") typeWriter(promiseContent,"promiseText");
+if(id==="valentine"){ 
+typeWriter(valentineContent,"valentineText");
 startFireworks();
 }
+}
+
+/* TYPEWRITER CONTENT */
+const proposeContent=`Every moment with you is special, but today,
+I want to make it unforgettable.
+Will you accept my heart darling..? ❤️`;
+
+const promiseContent=`Maata isthunnaney 🤝
+nekosam adhi chestanu, idhi chestanu ani peddha peddha dialogues cheppanu kani,
+Ninnu mosam cheyyanu, ne nammakani vommu kaanivvanu...🫶`;
+
+const valentineContent=`I'm so happy to have you in my life.
+You're the best thing that ever happened to me.
+You're the most beautiful gift I've ever received from God!
+My life would be simply meaningless without you.
+Thank you for being mine.❤️`;
+
+function typeWriter(text,id){
+let i=0;
+document.getElementById(id).innerHTML="";
+function typing(){
+if(i<text.length){
+document.getElementById(id).innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,35);
+}
+}
+typing();
 }
 
 /* HEART RAIN */
@@ -216,27 +288,6 @@ document.body.appendChild(heart);
 setTimeout(()=>{heart.remove();},6000);
 }
 setInterval(createHeart,300);
-
-/* TYPEWRITER */
-const text=`I'm so happy to have you in my life.
-You're the best thing that ever happened to me.
-You're the most beautiful gift I've ever received from God!
-My life would be simply meaningless without you.
-Thank you for being mine.❤️`;
-
-let i=0;
-function startTyping(){
-document.getElementById("typewriter").innerHTML="";
-i=0;
-type();
-}
-function type(){
-if(i<text.length){
-document.getElementById("typewriter").innerHTML+=text.charAt(i);
-i++;
-setTimeout(type,40);
-}
-}
 
 /* FIREWORKS */
 function startFireworks(){
