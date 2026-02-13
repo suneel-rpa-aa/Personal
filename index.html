@@ -218,6 +218,18 @@ animation:explode 1s ease-out forwards;
 <div id="valentine" class="section">
 <h1>Happy Valentine’s Day My Love❤️</h1>
 <p id="valentineText" style="font-size:22px; max-width:700px; line-height:1.6;"></p>
+
+<br><br>
+
+<h2>Nenu ninnu baga chusukuntunana darling? 😌</h2>
+
+<div>
+<button onclick="showYes()" id="yesBtn">YES 💖</button>
+<button onclick="forceYes()" id="noBtn">NO 😜</button>
+</div>
+
+<p id="finalAnswer" style="margin-top:10px;font-size:20px;"></p>
+
 </div>
 
 </div>
@@ -226,7 +238,7 @@ animation:explode 1s ease-out forwards;
 
 /* PASSWORD */
 function checkPassword(){
-if(document.getElementById("password").value==="31072025"){
+if(document.getElementById("password").value==="myqueen"){
 document.getElementById("loginScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
 document.getElementById("bgMusic").play();
@@ -249,7 +261,7 @@ startFireworks();
 }
 }
 
-/* TYPEWRITER CONTENT */
+/* CONTENT */
 const proposeContent=`Every moment with you is special, but today,
 I want to make it unforgettable.
 Will you accept my heart darling..? ❤️`;
@@ -302,6 +314,15 @@ document.body.appendChild(fw);
 setTimeout(()=>fw.remove(),1000);
 },j*200);
 }
+}
+
+/* FUNNY YES/NO */
+function showYes(){
+document.getElementById("finalAnswer").innerHTML="Of course YES 💖 Nuvvu best husband 😎";
+}
+function forceYes(){
+document.getElementById("noBtn").innerHTML="YES 💖";
+document.getElementById("finalAnswer").innerHTML="Hehehe 😁 Answer always YES only 💕";
 }
 
 </script>
