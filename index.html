@@ -5,7 +5,7 @@
 <title>For My Love ❤️</title>
 
 <style>
-body {
+body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
     background:linear-gradient(to right,#ff758c,#ff7eb3);
@@ -14,7 +14,7 @@ body {
     overflow:hidden;
 }
 
-/* ===== SURPRISE INTRO ===== */
+/* ===== INTRO SCREEN ===== */
 #introScreen{
     position:fixed;
     width:100%;
@@ -28,37 +28,30 @@ body {
     animation:fadeOut 3s ease forwards;
     animation-delay:3s;
 }
-
 #introScreen h1{
     font-size:40px;
     animation:zoomIn 2s ease;
 }
-
 @keyframes zoomIn{
-    from{transform:scale(0); opacity:0;}
-    to{transform:scale(1); opacity:1;}
+    from{transform:scale(0);opacity:0;}
+    to{transform:scale(1);opacity:1;}
 }
-
 @keyframes fadeOut{
-    to{opacity:0; visibility:hidden;}
+    to{opacity:0;visibility:hidden;}
 }
 
-/* ===== FALLING HEARTS ===== */
+/* ===== HEART RAIN ===== */
 .heartRain{
     position:fixed;
     top:-10px;
     font-size:20px;
     animation:fall linear infinite;
 }
-
 @keyframes fall{
-    to{
-        transform:translateY(110vh);
-        opacity:0;
-    }
+    to{transform:translateY(110vh);opacity:0;}
 }
 
-/* ===== PASSWORD SCREEN ===== */
+/* PASSWORD */
 #loginScreen{
     height:100vh;
     display:flex;
@@ -66,8 +59,7 @@ body {
     justify-content:center;
     align-items:center;
 }
-
-#mainContent{ display:none; }
+#mainContent{display:none;}
 
 input{
     padding:10px;
@@ -75,7 +67,6 @@ input{
     border:none;
     text-align:center;
 }
-
 button{
     margin-top:10px;
     padding:8px 20px;
@@ -90,7 +81,6 @@ nav{
     background:rgba(0,0,0,0.25);
     padding:10px;
 }
-
 nav a{
     margin:5px;
     padding:8px 14px;
@@ -101,6 +91,7 @@ nav a{
     color:white;
 }
 
+/* SECTION */
 .section{
     display:none;
     height:85vh;
@@ -109,27 +100,22 @@ nav a{
     flex-direction:column;
     padding:20px;
 }
-
-.active{ display:flex; }
-
-.emoji{ font-size:60px; }
+.active{display:flex;}
+.emoji{font-size:60px;}
 
 .float{
     display:inline-block;
     animation:float 2s infinite ease-in-out;
 }
-
 .jump{
     display:inline-block;
     animation:jump 1.4s infinite ease-in-out;
 }
-
 @keyframes float{
     0%{transform:translateY(0);}
     50%{transform:translateY(-20px);}
     100%{transform:translateY(0);}
 }
-
 @keyframes jump{
     0%{transform:translateY(0);}
     50%{transform:translateY(-30px);}
@@ -154,75 +140,114 @@ nav a{
     <p id="error" style="color:yellow;"></p>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 <div id="mainContent">
 
 <nav>
-    <a onclick="show('rose')">🌹 Rose</a>
-    <a onclick="show('propose')">💍 Propose</a>
-    <a onclick="show('valentine')">❤️ Valentine</a>
+<a onclick="show('rose')">🌹 Rose</a>
+<a onclick="show('propose')">💍 Propose</a>
+<a onclick="show('chocolate')">🍫 Chocolate</a>
+<a onclick="show('teddy')">🧸 Teddy</a>
+<a onclick="show('promise')">🤞 Promise</a>
+<a onclick="show('hug')">🫂 Hug</a>
+<a onclick="show('kiss')">😘 Kiss</a>
+<a onclick="show('valentine')">❤️ Valentine</a>
 </nav>
 
+<!-- ROSE -->
 <div id="rose" class="section active">
-    <h1>Happy Rose Day My Darling 🌹</h1>
-    <div class="emoji">
-        <span class="jump" style="animation-delay:0s">🌹</span>
-        <span class="jump" style="animation-delay:.2s">🌹</span>
-        <span class="jump" style="animation-delay:.4s">🌹</span>
-    </div>
+<h1>Happy Rose Day My Darling 🌹</h1>
+<div class="emoji">
+<span class="jump" style="animation-delay:0s">🌹</span>
+<span class="jump" style="animation-delay:.2s">🌹</span>
+<span class="jump" style="animation-delay:.4s">🌹</span>
+</div>
 </div>
 
+<!-- PROPOSE -->
 <div id="propose" class="section">
-    <h1>Happy Propose Day My Darling 💍</h1>
-    <p style="font-size:22px; max-width:700px;">
-        Every moment with you is special,
-        Will you accept my heart?
-        <span class="float">❤️</span>
-    </p>
+<h1>Happy Propose Day My Darling 💍</h1>
+<p style="max-width:700px;">
+Every moment with you is special,
+Will you accept my heart?
+<span class="float">❤️</span>
+</p>
 </div>
 
+<!-- CHOCOLATE -->
+<div id="chocolate" class="section">
+<h1>Happy Chocolate Day My Darling 🍫</h1>
+<div class="emoji">
+<span class="jump">🍫</span>
+<span class="jump" style="animation-delay:.2s">🍫</span>
+</div>
+</div>
+
+<!-- TEDDY -->
+<div id="teddy" class="section">
+<h1>Happy Teddy Day My Darling 🧸</h1>
+<div class="emoji">
+<span class="jump">🧸</span>
+<span class="jump" style="animation-delay:.3s">🧸</span>
+</div>
+</div>
+
+<!-- PROMISE -->
+<div id="promise" class="section">
+<h1>Happy Promise Day My Darling 🤞</h1>
+<p>I promise to always stay with you ❤️</p>
+<h2>Forever Yours <span class="float">🫶</span></h2>
+</div>
+
+<!-- HUG -->
+<div id="hug" class="section">
+<h1>Happy Hug Day My Darling 🫂</h1>
+<div class="emoji">
+<span class="jump">🫂</span>
+<span class="jump" style="animation-delay:.2s">🫂</span>
+</div>
+</div>
+
+<!-- KISS -->
+<div id="kiss" class="section">
+<h1>Happy Kiss Day My Darling 😘</h1>
+<div class="emoji">
+<span class="jump">😘</span>
+<span class="jump" style="animation-delay:.2s">😘</span>
+</div>
+</div>
+
+<!-- VALENTINE -->
 <div id="valentine" class="section">
-    <h1>Happy Valentine’s Day My Love ❤️</h1>
-    <p style="max-width:700px;">
-        I'm so happy to have you in my life.
-        You're the best thing that ever happened to me.
-        Thank you for being mine.
-    </p>
-    <h2>
-        Forever Yours 
-        <span class="float">❤️</span>
-    </h2>
+<h1>Happy Valentine’s Day My Love ❤️</h1>
+<p>I'm so happy to have you in my life. Thank you for being mine.</p>
+<h2>Always & Forever <span class="float">❤️</span></h2>
 </div>
 
 </div>
 
 <script>
-/* PASSWORD */
 function checkPassword(){
-    if(document.getElementById("password").value === "31072025"){
-        document.getElementById("loginScreen").style.display="none";
-        document.getElementById("mainContent").style.display="block";
-    }else{
-        document.getElementById("error").innerText="Wrong password 😢";
-    }
+if(document.getElementById("password").value==="31072025"){
+document.getElementById("loginScreen").style.display="none";
+document.getElementById("mainContent").style.display="block";
+}else{
+document.getElementById("error").innerText="Wrong password 😢";
 }
-
-/* NAV */
+}
 function show(id){
-    document.querySelectorAll('.section')
-    .forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+document.querySelectorAll('.section')
+.forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
-
-/* HEART RAIN */
 function createHeart(){
-    const heart=document.createElement("div");
-    heart.classList.add("heartRain");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(Math.random()*3+3)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>{heart.remove();},6000);
+const heart=document.createElement("div");
+heart.classList.add("heartRain");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},6000);
 }
 setInterval(createHeart,300);
 </script>
