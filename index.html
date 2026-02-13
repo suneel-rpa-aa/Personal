@@ -6,253 +6,206 @@
 
 <style>
 body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(to right,#ff758c,#ff7eb3);
-    color:white;
-    text-align:center;
-    overflow:hidden;
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to right,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow:hidden;
 }
 
-/* ===== INTRO ===== */
+/* INTRO */
 #introScreen{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
-    animation:fadeOut 3s ease forwards;
-    animation-delay:3s;
-}
-#introScreen h1{
-    font-size:40px;
-    animation:zoomIn 2s ease;
-}
-@keyframes zoomIn{
-    from{transform:scale(0);opacity:0;}
-    to{transform:scale(1);opacity:1;}
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 3s ease forwards;
+animation-delay:3s;
 }
 @keyframes fadeOut{
-    to{opacity:0;visibility:hidden;}
+to{opacity:0;visibility:hidden;}
 }
 
-/* ===== HEART RAIN ===== */
+/* HEART RAIN */
 .heartRain{
-    position:fixed;
-    top:-10px;
-    font-size:20px;
-    animation:fall linear infinite;
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
 }
 @keyframes fall{
-    to{transform:translateY(110vh);opacity:0;}
+to{transform:translateY(110vh);opacity:0;}
 }
 
 /* PASSWORD */
 #loginScreen{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 #mainContent{display:none;}
 
 input{
-    padding:10px;
-    border-radius:20px;
-    border:none;
-    text-align:center;
+padding:10px;
+border-radius:20px;
+border:none;
+text-align:center;
 }
 button{
-    margin-top:10px;
-    padding:8px 20px;
-    border:none;
-    border-radius:20px;
-    background:white;
-    cursor:pointer;
+margin-top:10px;
+padding:8px 20px;
+border:none;
+border-radius:20px;
+background:white;
+cursor:pointer;
 }
 
 /* NAV */
 nav{
-    background:rgba(0,0,0,0.25);
-    padding:10px;
+background:rgba(0,0,0,0.25);
+padding:10px;
 }
 nav a{
-    margin:5px;
-    padding:8px 14px;
-    background:rgba(255,255,255,0.25);
-    border-radius:20px;
-    cursor:pointer;
-    text-decoration:none;
-    color:white;
+margin:5px;
+padding:8px 14px;
+background:rgba(255,255,255,0.25);
+border-radius:20px;
+cursor:pointer;
+text-decoration:none;
+color:white;
 }
 
 /* SECTION */
 .section{
-    display:none;
-    height:85vh;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    padding:20px;
+display:none;
+height:85vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
 }
 .active{display:flex;}
 .emoji{font-size:60px;}
 
 .float{
-    display:inline-block;
-    animation:float 2s infinite ease-in-out;
+display:inline-block;
+animation:float 2s infinite ease-in-out;
 }
 .jump{
-    display:inline-block;
-    animation:jump 1.4s infinite ease-in-out;
+display:inline-block;
+animation:jump 1.4s infinite ease-in-out;
 }
 @keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
-    100%{transform:translateY(0);}
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
 }
 @keyframes jump{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-30px);}
-    100%{transform:translateY(0);}
+0%{transform:translateY(0);}
+50%{transform:translateY(-30px);}
+100%{transform:translateY(0);}
+}
+
+/* FIREWORKS */
+.firework{
+position:fixed;
+font-size:25px;
+animation:explode 1s ease-out forwards;
+}
+@keyframes explode{
+0%{transform:scale(0);}
+100%{transform:scale(2);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+<source src="love.mp3" type="audio/mpeg">
+</audio>
+
 <!-- INTRO -->
 <div id="introScreen">
-    <h1>For My Love ❤️</h1>
-    <p>Something Special Just For You 💖</p>
+<h1>For My Love ❤️</h1>
+<p>Something Special Just For You 💖</p>
 </div>
 
 <!-- PASSWORD -->
 <div id="loginScreen">
-    <h2>Enter Our Secret Password 💕</h2>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Unlock</button>
-    <p id="error" style="color:yellow;"></p>
+<h2>Enter Our Secret Password 💕</h2>
+<input type="password" id="password" placeholder="Password">
+<button onclick="checkPassword()">Unlock</button>
+<p id="error" style="color:yellow;"></p>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div id="mainContent">
 
 <nav>
 <a onclick="show('rose')">🌹 Rose</a>
 <a onclick="show('propose')">💍 Propose</a>
-<a onclick="show('chocolate')">🍫 Chocolate</a>
-<a onclick="show('teddy')">🧸 Teddy</a>
-<a onclick="show('promise')">🤞 Promise</a>
-<a onclick="show('hug')">🫂 Hug</a>
-<a onclick="show('kiss')">😘 Kiss</a>
 <a onclick="show('valentine')">❤️ Valentine</a>
 </nav>
 
-<!-- ROSE -->
 <div id="rose" class="section active">
 <h1>Happy Rose Day My Darling 🌹</h1>
 <div class="emoji">
-<span class="jump" style="animation-delay:0s">🌹</span>
+<span class="jump">🌹</span>
 <span class="jump" style="animation-delay:.2s">🌹</span>
-<span class="jump" style="animation-delay:.4s">🌹</span>
 </div>
 </div>
 
-<!-- PROPOSE -->
 <div id="propose" class="section">
 <h1>Happy Propose Day My Darling 💍</h1>
-<p style="font-size:22px; max-width:700px; line-height:1.6;">
-Every moment with you is special, but today,
-I want to make it unforgettable.
-Will you accept my heart darling..?
+<p style="font-size:22px;">
+Every moment with you is special...
 <span class="float">❤️</span>
 </p>
 </div>
 
-<!-- CHOCOLATE -->
-<div id="chocolate" class="section">
-<h1>Happy Chocolate Day My Darling 🍫</h1>
-<div class="emoji">
-<span class="jump">🍫</span>
-<span class="jump" style="animation-delay:.2s">🍫</span>
-</div>
-</div>
-
-<!-- TEDDY -->
-<div id="teddy" class="section">
-<h1>Happy Teddy Day My 🧸 Darling😉</h1>
-<div class="emoji">
-<span class="jump">🧸</span>
-<span class="jump" style="animation-delay:.3s">🧸</span>
-</div>
-</div>
-
-<!-- PROMISE -->
-<div id="promise" class="section">
-<h1>Happy Promise Day My Darling🤞</h1>
-<p style="font-size:22px">
-Maata isthunnaney 🤝 <br>
-nekosam adhi chestanu, idhi chestanu ani peddha peddha dialogues cheppanu kani, <br>
-Ninnu mosam cheyyanu, ne nammakani vommu kaanivvanu...
-<br><br>
-Happy Promise Day Darling 🫶
-</p>
-</div>
-
-<!-- HUG -->
-<div id="hug" class="section">
-<h1>Happy Hug Day My Darling 🫂</h1>
-<div class="emoji">
-<span class="jump">🫂</span>
-<span class="jump" style="animation-delay:.2s">🫂</span>
-</div>
-</div>
-
-<!-- KISS -->
-<div id="kiss" class="section">
-<h1>Happy Kiss Day My Darling 😘😘</h1>
-<div class="emoji">
-<span class="jump">😘</span>
-<span class="jump" style="animation-delay:.2s">😘</span>
-</div>
-</div>
-
-<!-- VALENTINE -->
 <div id="valentine" class="section">
 <h1>Happy Valentine’s Day My Love❤️</h1>
-<p style="font-size:22px; max-width:700px; line-height:1.6;">
-I'm so happy to have you in my life.
-You're the best thing that ever happened to me.
-You're the most beautiful gift I've ever received from God!
-My life would be simply meaningless without you.
-<br><br>
-Thank you for being mine.❤️
-</p>
-
+<p id="typewriter" style="font-size:22px; max-width:700px;"></p>
 </div>
 
 </div>
 
 <script>
+
+/* PASSWORD */
 function checkPassword(){
 if(document.getElementById("password").value==="31072025"){
 document.getElementById("loginScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
+document.getElementById("bgMusic").play();
 }else{
 document.getElementById("error").innerText="Wrong password 😢";
 }
 }
+
+/* NAV */
 function show(id){
 document.querySelectorAll('.section')
 .forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
+
+if(id==="valentine"){
+startTyping();
+startFireworks();
 }
+}
+
+/* HEART RAIN */
 function createHeart(){
 const heart=document.createElement("div");
 heart.classList.add("heartRain");
@@ -263,6 +216,43 @@ document.body.appendChild(heart);
 setTimeout(()=>{heart.remove();},6000);
 }
 setInterval(createHeart,300);
+
+/* TYPEWRITER */
+const text=`I'm so happy to have you in my life.
+You're the best thing that ever happened to me.
+You're the most beautiful gift I've ever received from God!
+My life would be simply meaningless without you.
+Thank you for being mine.❤️`;
+
+let i=0;
+function startTyping(){
+document.getElementById("typewriter").innerHTML="";
+i=0;
+type();
+}
+function type(){
+if(i<text.length){
+document.getElementById("typewriter").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,40);
+}
+}
+
+/* FIREWORKS */
+function startFireworks(){
+for(let j=0;j<20;j++){
+setTimeout(()=>{
+const fw=document.createElement("div");
+fw.classList.add("firework");
+fw.innerHTML="🎆";
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*60+"vh";
+document.body.appendChild(fw);
+setTimeout(()=>fw.remove(),1000);
+},j*200);
+}
+}
+
 </script>
 
 </body>
